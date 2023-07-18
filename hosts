@@ -1,0 +1,9 @@
+[servers]
+192.168.10.102
+192.168.10.103
+192.168.10.114
+
+[servers:vars]
+ansible_port=22
+ansible_user=ale
+ansible_ssh_private_key_file=/home/ale/.ssh/id_rsa

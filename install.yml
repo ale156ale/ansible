@@ -1,0 +1,19 @@
+---
+- hosts: servers
+  user: ale
+  become: True
+  gather_facts: no
+  tasks:
+  - name: Install packages
+    apt:
+      pkg:
+        - openssh-client
+        - openssh-server
+        - sudo
+        - screenfetch
+        - linuxlogo
+        - vim
+        - htop
+        - net-tools
+      state: present
+      update_cache: True
