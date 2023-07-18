@@ -15,5 +15,8 @@
         - vim
         - htop
         - net-tools
+        - nginx
+        - nodejs
+        - npm
       state: present
       update_cache: True

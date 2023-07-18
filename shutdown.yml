@@ -1,0 +1,14 @@
+---
+- hosts: servers
+  user: ale
+  become: yes
+  tasks:
+    # protect yourself
+    - name: "Prompt for shutdown"
+      pause:
+        prompt: "Are you sure reboot all shutdown?"
+    - name: "Shutdown hosts"
+      command: /sbin/shutdown -h now
+      become_user: root
+    - name: "Wait go Down"
+      local_action: wait_for hosts=servers port=22 state=stopped    

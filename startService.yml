@@ -1,0 +1,11 @@
+---
+- hosts: servers
+  user: ale
+  become: True
+  gather_facts: no
+  tasks:
+  - name: Start nginx
+    service:
+      name: nginx
+      state: started  
+

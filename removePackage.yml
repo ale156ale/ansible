@@ -1,0 +1,13 @@
+---
+- hosts: servers
+  user: ale
+  become: True
+  gather_facts: no
+  tasks:
+  - name: Remove apache2
+    apt:
+      pkg:
+       - apache2
+      autoremove: yes
+      state: absent
+      update_cache: True

@@ -1,0 +1,13 @@
+---
+- hosts: servers
+  user: ale
+  become: yes
+  tasks:
+    # protect yourself
+    - name: "ask for verification ... Reboot?"
+      pause:
+        prompt: "Are you sure reboot all hosts?"
+    - name: "Rebbot hosts"
+      reboot:
+        msg: "Reboot triggered by Ansbile"
+        reboot_timeout: 60
