@@ -1,0 +1,14 @@
+---
+- hosts: servers
+  user: ale
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Upgrade packages
+    ansible.builtin.apt:
+      name: "*"
+      state: latest
+      update_cache: yes
+  - name: Check if a reboot is need
+    register: reboot_required_file
+    stat: path=/var/run/reboot-required get_md5=no
