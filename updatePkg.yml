@@ -9,6 +9,10 @@
       name: "*"
       state: latest
       update_cache: yes
+    register: os_info    
+  - debug: #out debug information
+      msg: "{{os_info.stdout_lines}}"
   - name: Check if a reboot is need
     register: reboot_required_file
     stat: path=/var/run/reboot-required get_md5=no
+ 
